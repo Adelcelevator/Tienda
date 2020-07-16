@@ -12,6 +12,8 @@ $dinero = dineroenCajaHoy();
 echo 'Dinero en Caja: ';
 foreach ($dinero as $d) {
     echo '' . $d[0];
+    $_SESSION['dinero_caja']=$d[0];
+    $_SESSION['id_caja']=$d[1];
 }
 ?>
 <br/>
@@ -48,6 +50,12 @@ foreach ($dinero as $d) {
     }
     ?>
 </table>
+<?php
+if (isset($_SESSION["mensajeV"])) {
+    echo '<br/>' . $_SESSION["mensajeV"];
+    $_SESSION["mensajeV"] = null;
+}
+?>
 <?php
 include 'template/FooterAdmin.php';
 exit();

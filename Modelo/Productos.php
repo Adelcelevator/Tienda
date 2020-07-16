@@ -11,3 +11,12 @@ function productoXId($id){
     return $resultado2;
 }
 
+function salidaxID($id,$cantidad,$stock){
+    $final = $stock - $cantidad;
+    if(Conexion()->query("UPDATE tbl_producto SET pro_stock=$final WHERE pro_id =$id")){
+        return true;
+    }else{
+        return false;
+    }
+}
+

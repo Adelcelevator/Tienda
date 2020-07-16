@@ -1,12 +1,9 @@
 <?php
-
 require_once 'Conexion.php';
-
 function dineroenCajaFecha($fecha) {
     $resultado = Conexion()->query("SELECT caja.caja_valorfinal FROM tbl_caja caja WHERE caja_fechainicio='$fecha' and caja.caja_id=caja_id")->fetch_all();
     return $resultado;
 }
-
 function dineroenCajaHoy() {
     $fecha = getdate();
     if (strlen($fecha['mon']) == 1) {
@@ -23,6 +20,15 @@ function dineroenCajaHoy() {
         }
         Conexion()->query("INSERT INTO tbl_caja values (null,'$fechafi','$fechafi',$dineroad,$dineroad,$dineroad)");
     }
-    $resultado2 = Conexion()->query("SELECT caja.caja_valorfinal FROM tbl_caja caja WHERE caja_fechainicio='$fechafin' and caja.caja_id=caja_id")->fetch_all();
+    $resultado2 = Conexion()->query("SELECT caja.caja_valorfinal, caja.caja_id FROM tbl_caja caja WHERE caja_fechainicio='$fechafi' and caja.caja_id=caja_id")->fetch_all();
     return $resultado2;
+}
+
+function actualizarCaja($preciofinal,$id){
+    $valorfinal=$_SESSION['dinero_caja']+$preciofinal;
+    if(Conexion()->query("UPDATE tbl_caja SET caja_valorfinal=$valorfinal,caja_total=$valorfinal WHERE caja_id =$id")){
+        return true;
+    }else{
+        return false;
+    }
 }
