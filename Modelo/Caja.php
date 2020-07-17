@@ -32,3 +32,11 @@ function actualizarCaja($preciofinal,$id){
         return false;
     }
 }
+function salidaCaja($costo,$id){
+    $valorfinal=$_SESSION['dinero_caja']-$costo;
+    if(Conexion()->query("UPDATE tbl_caja SET caja_valorfinal=$valorfinal,caja_total=$valorfinal WHERE caja_id =$id")){
+        return true;
+    }else{
+        return false;
+    }
+}
