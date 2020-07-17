@@ -50,7 +50,7 @@ echo '<form action="../Controladores/venderControlador.php?idPro=' . $id . '&pre
 </form>
 <script type="text/javascript">
     function validarCat(){
-        if (document.getElementById("txt_cantidad").value =="") {
+        if (document.getElementById("txt_cantidad").value ==="") {
             alert("Campo cantidad Vacio");
             document.getElementById("btn_vender").disabled = true;
         }

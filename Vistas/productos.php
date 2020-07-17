@@ -45,7 +45,7 @@ foreach ($dinero as $d) {
                 echo 'no';
             }
             echo '</td>';
-            echo '<td>' .'<a href="vender.php?id=' . $pro[0] . '">Vender</a>' .'&nbsp;&nbsp;<a href="erms_editar.php?id=' . $pro[0] . '">Abastecer</a>' . '&nbsp;&nbsp;<a href="Modelo/erms_eliminarLi.php?id_libro=' . $pro[0] . '">Modificar</a>' . '</td>';
+            echo '<td>' .'<a href="vender.php?id=' . $pro[0] . '">Vender</a>' .'&nbsp;&nbsp;<a href="editar.php?id=' . $pro[0] . '">Modificar</a>' . '&nbsp;&nbsp;<a href="abastecer.php?id=' . $pro[0] . '">Abastecer</a>' . '</td>';
         echo '</tr>';
     }
     ?>
